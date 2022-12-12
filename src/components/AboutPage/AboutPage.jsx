@@ -44,9 +44,22 @@ function AboutPage() {
 
     // console.log('editorData:', editorData);
 
+    // console.log('content is', content);
+
     console.log('content is', content);
 
     // content = String(content.name);
+
+    // // let newContent = new DOMParser().parseFromString(content, 'text/xml');
+    // function createElementFromHTML(htmlString) {
+    //     var div = document.createElement('div');
+    //     div.innerHTML = htmlString.trim();
+      
+    //     // Change this to div.childNodes to support multiple top-level nodes.
+    //     return div.firstChild;
+    //   }
+    
+    // let newContent = createElementFromHTML(content);
 
 
     return (
@@ -68,8 +81,11 @@ function AboutPage() {
 					// Other option
 			    }}
                             //variable, will render as a string but not as a variable.
-                defaultValue={content}
+                
+                setContents={content}
             />
+
+                {/* {newContent} */}
         </div>
     
     )
