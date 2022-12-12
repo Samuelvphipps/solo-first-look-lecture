@@ -9,6 +9,12 @@ const useReduxStore = () => {
   return useSelector((store) => store);
 };
 
+
+const useUser = () => {
+
+    return useSelector(store=>store.user)
+};
+
 /*
 EXAMPLE FOR A SELECTOR THAT GETS SOMETHING SPECIFIC
 
@@ -16,5 +22,5 @@ const useUser = () => {
   return useSelector(store => store.user)
 }
 */
-
-export default useReduxStore;
+        //export hook
+export default useUser;

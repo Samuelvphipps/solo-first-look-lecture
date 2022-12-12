@@ -15,10 +15,12 @@ function* loginUser(action) {
     // send the action.payload as the body
     // the config includes credentials which
     // allow the server session to recognize the user
+        // posts username and password to server
     yield axios.post('/api/user/login', action.payload, config);
 
     // after the user has logged in
     // get the user information from the server
+    //fetch user to see if they logged in
     yield put({ type: 'FETCH_USER' });
   } catch (error) {
     console.log('Error with user login:', error);
@@ -58,7 +60,10 @@ function* logoutUser(action) {
   }
 }
 
+
+//Export this watcher saga
 function* loginSaga() {
+    //Take latest? => take latest says if you send multiple requests right away it takes the last one and uses it
   yield takeLatest('LOGIN', loginUser);
   yield takeLatest('LOGOUT', logoutUser);
 }

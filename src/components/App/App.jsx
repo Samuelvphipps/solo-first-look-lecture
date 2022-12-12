@@ -72,9 +72,11 @@ function App() {
             exact
             path="/login"
           >
+            {/* change user location if they are logged in */}
             {user.id ?
               // If the user is already logged in, 
               // redirect to the /user page
+              //Redirect is part of react router
               <Redirect to="/user" />
               :
               // Otherwise, show the login page

@@ -6,7 +6,7 @@ function* fetchUser() {
   try {
     const config = {
       headers: { 'Content-Type': 'application/json' },
-      withCredentials: true,
+      withCredentials: true, //send the cookie
     };
 
     // the config includes credentials which
@@ -24,8 +24,15 @@ function* fetchUser() {
   }
 }
 
+function* fetchPets(){
+    const response = yield axios.get('/api/pets');
+    yield put ({type: 'SET_PETS', payload: response.data});
+}
+
 function* userSaga() {
   yield takeLatest('FETCH_USER', fetchUser);
+
+  yield takeLatest('FETCH_PETS', fetchPets);
 }
 
 export default userSaga;
